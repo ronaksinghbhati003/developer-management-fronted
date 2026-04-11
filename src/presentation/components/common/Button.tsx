@@ -28,18 +28,18 @@ interface ButtonProps extends BaseComponentProps, React.ButtonHTMLAttributes<HTM
 // ─── Style Maps ───────────────────────────────────────────────────────────────
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-primary text-white hover:bg-primary-hover active:bg-primary-active shadow-sm',
-  secondary: 'bg-secondary text-white hover:bg-secondary-hover active:bg-secondary-active shadow-sm',
-  outline: 'border border-primary text-primary bg-transparent hover:bg-primary hover:text-white',
-  ghost: 'bg-transparent text-primary hover:bg-primary/10',
-  danger: 'bg-error text-white hover:bg-error/90 active:bg-error/80 shadow-sm',
+  primary: 'bg-primary text-white hover:bg-primary-hover active:bg-primary-active shadow-sm hover:-translate-y-[1px] hover:shadow-md',
+  secondary: 'bg-secondary text-white hover:bg-secondary-hover active:bg-secondary-active shadow-sm hover:-translate-y-[1px] hover:shadow-md',
+  outline: 'border border-border bg-surface text-text-primary hover:border-primary hover:bg-primary-subtle hover:text-primary',
+  ghost: 'bg-transparent text-text-secondary hover:bg-surface-hover hover:text-text-primary',
+  danger: 'bg-error text-white hover:bg-error/90 active:bg-error/80 shadow-sm hover:-translate-y-[1px] hover:shadow-md',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  xs: 'h-7 px-2.5 text-xs rounded',
-  sm: 'h-8 px-3 text-sm rounded-md',
+  xs: 'h-7 px-2.5 text-xs rounded-md',
+  sm: 'h-9 px-3.5 text-sm rounded-lg',
   md: 'h-10 px-4 text-sm rounded-lg',
-  lg: 'h-11 px-6 text-base rounded-lg',
+  lg: 'h-11 px-6 text-base rounded-xl',
   xl: 'h-12 px-8 text-base rounded-xl',
 };
 
@@ -68,7 +68,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={isDisabled}
         className={clsx(
-          'inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+          'inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer ring-offset-background',
           variantClasses[variant],
           sizeClasses[size],
           fullWidth && 'w-full',

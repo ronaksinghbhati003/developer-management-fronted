@@ -8,3 +8,4 @@
  */
 
 export { useAppDispatch, useAppSelector } from '@/store/hooks';
+export { openRealityCheckPanel, getRealityCheckEventName } from './useRealityCheckPanel';
